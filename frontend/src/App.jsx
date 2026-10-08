@@ -57,7 +57,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/products')
+    fetch('https://loud-ecommerce-backend.onrender.com/api/products')
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error('Error fetching products:', err))
@@ -78,7 +78,7 @@ function App() {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const res = await fetch('http://localhost:8080/api/auth/login', {
+      const res = await fetch('https://loud-ecommerce-backend.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: authEmail, password: authPassword })
@@ -98,7 +98,7 @@ function App() {
   const handleSignup = async (e) => {
     e.preventDefault()
     try {
-      const res = await fetch('http://localhost:8080/api/auth/signup', {
+      const res = await fetch('https://loud-ecommerce-backend.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fullName: authName, email: authEmail, password: authPassword })
@@ -164,7 +164,7 @@ function App() {
       shippingAddress: `${address.fullName}, ${address.street}, ${address.city} - ${address.pincode} (Ph: ${address.phone})`
     }
     try {
-      const res = await fetch('http://localhost:8080/api/orders/place', {
+      const res = await fetch('https://loud-ecommerce-backend.onrender.com/api/orders/place', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData)
@@ -197,7 +197,7 @@ function App() {
 
   const fetchAllOrders = async () => {
     try {
-      const res = await fetch('http://localhost:8080/api/orders/all')
+      const res = await fetch('https://loud-ecommerce-backend.onrender.com/api/orders/all')
       if (res.ok) {
         const data = await res.json()
         setAllOrders(data)
